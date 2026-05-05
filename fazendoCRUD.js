@@ -2,11 +2,11 @@ const http = require('http');
 const port = 3000;
 const hostname = '127.0.0.1';
 const server = http.createServer((req, res) => {
-  req = estatusCode = 200;
+  res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Servidor rodando');
+  console.log(`Requisição tipo de metodo: ${req.method}`);
   if (req.url === "/") {
-    res.end("Bem vindo a pagina inicial");
+    res.end('Servidor rodando');
   } else if (req.url === "/sobre") {
     res.end("Bem vindo a pagina sobre");
   } else if (req.url === "/contato") {
